@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7645d9489a94bbea8c25288899f174, type: 3}
+  m_Name: PlanetShape
+  m_EditorClassIdentifier: 
+  planetRadius: 29.7
+  noiseLayers:
+  - enabled: 1
+    useFirstLayerAsMask: 0
+    noiseSettings:
+      filterType: 1
+      simpleNoiseSettings:
+        strength: -0.1
+        numLayers: 2
+        baseRoughness: 0.9
+        roughness: 4.76
+        persistence: 0.28
+        minValue: -0.33
+        centre: {x: 0, y: 0, z: 0}
+      rigidNoiseSettings:
+        strength: -0.23
+        numLayers: 3
+        baseRoughness: 0.89
+        roughness: 4.25
+        persistence: 1.16
+        minValue: 0.13
+        centre: {x: 0, y: 0, z: 0}
+        weightMultiplier: 0.32
+  - enabled: 1
+    useFirstLayerAsMask: 0
+    noiseSettings:
+      filterType: 1
+      simpleNoiseSettings:
+        strength: -0.1
+        numLayers: 2
+        baseRoughness: 0.9
+        roughness: 4.76
+        persistence: 0.28
+        minValue: -0.33
+        centre: {x: 0, y: 0, z: 0}
+      rigidNoiseSettings:
+        strength: 0.4
+        numLayers: 4
+        baseRoughness: 0.44
+        roughness: 3.89
+        persistence: -0.83
+        minValue: 0.17
+        centre: {x: 0, y: 0, z: 0}
+        weightMultiplier: 0.32
+  - enabled: 1
+    useFirstLayerAsMask: 0
+    noiseSettings:
+      filterType: 1
+      simpleNoiseSettings:
+        strength: 0.03
+        numLayers: 2
+        baseRoughness: 4.39
+        roughness: 2.92
+        persistence: 0.28
+        minValue: -0.33
+        centre: {x: 0, y: 0, z: 0}
+      rigidNoiseSettings:
+        strength: 0.03
+        numLayers: 4
+        baseRoughness: 4.12
+        roughness: 4.47
+        persistence: 2.03
+        minValue: -0.2
+        centre: {x: 0, y: 0, z: 0}
+        weightMultiplier: 0.25
