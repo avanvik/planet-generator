@@ -2,11 +2,10 @@ using UnityEngine;
 using System.Linq;
 
 
-class WorldTerrainConfig 
+class WorldTerrainParameters 
 {
 	public int Resolution { get; set; }
 	public Material Material { get; set; }
-
 	public ShapeSettings ShapeSettings { get; set; }
 }
 
@@ -18,13 +17,13 @@ static class WorldTerrainGenerator
 		public MinMax ElevationRange;
 	}
 
-	public static GameObject GenerateWorldTerrain(WorldTerrainConfig config) {
+	public static GameObject GenerateWorldTerrain(WorldTerrainParameters parameters) {
 		var rootNode = new GameObject("Terrain");
 		Vector3[] faceDirections = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
 		
 		var faces = faceDirections.Select(direction => 
 		{
-			var face = GenerateWorldFace(rootNode.transform, direction, config.Resolution, config.Material, config.ShapeSettings);
+			var face = GenerateWorldFace(rootNode.transform, direction, parameters.Resolution, parameters.Material, parameters.ShapeSettings);
 			face.GameObject.transform.parent = rootNode.transform;
 			return face;
 		});

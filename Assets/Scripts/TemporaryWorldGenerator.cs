@@ -27,7 +27,7 @@ public class TemporaryWorldGenerator : MonoBehaviour
 				DestroyImmediate(oldChild.gameObject);
 			}
 		
-			var terrainConfig = new WorldTerrainConfig() {
+			var terrainConfig = new WorldTerrainParameters() {
 				Material = material,
 				Resolution = resolution,
 				ShapeSettings = shapeSettings
