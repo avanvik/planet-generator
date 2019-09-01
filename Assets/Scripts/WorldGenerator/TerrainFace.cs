@@ -58,8 +58,5 @@ public static class TerrainFaceGenerator
 		mesh.RecalculateNormals();
 
 		return new TerrainFace() { Mesh = mesh, ElevationRange = minMax };
-	} 
-
-	
-	
+	}
 }

@@ -1,10 +1,6 @@
 using UnityEngine;
 using System.Linq;
 
-class World 
-{
-
-}
 
 class WorldTerrainConfig 
 {
@@ -22,8 +18,7 @@ static class WorldTerrainGenerator
 		public MinMax ElevationRange;
 	}
 
-	public static World GenerateWorldTerrain(WorldTerrainConfig config) {
-		var world = new World();
+	public static GameObject GenerateWorldTerrain(WorldTerrainConfig config) {
 		var rootNode = new GameObject("Terrain");
 		Vector3[] faceDirections = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
 		
@@ -36,7 +31,7 @@ static class WorldTerrainGenerator
 
 		var combinedElevationMinMax = MinMax.Union(faces.Select(face=> face.ElevationRange));
 
-		return world;
+        return rootNode;
 	}
 
 	private static WorldFace GenerateWorldFace(Transform parent, Vector3 direction, int resolution, Material material, ShapeSettings shapeSettings)
