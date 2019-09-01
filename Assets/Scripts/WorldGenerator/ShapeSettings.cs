@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
 [System.Serializable]
-public class ShapeSettings : ScriptableObject
+public class ShapeSettings
 {
     [Range(0, 100)]
     public float planetRadius;
