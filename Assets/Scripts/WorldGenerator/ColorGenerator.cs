@@ -19,7 +19,7 @@ public class ColorGenerator {
 
 	public void UpdateElevation(MinMax elevationMinMax)
 	{
-		settings.planetMaterial.SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min, elevationMinMax.Max));
+		settings.worldMaterial.SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min, elevationMinMax.Max));
 	}
 
 	public void UpdateColors()
@@ -31,6 +31,6 @@ public class ColorGenerator {
 		}
 		texture.SetPixels(colors);
 		texture.Apply();
-		settings.planetMaterial.SetTexture("_texture", texture);
+		settings.worldMaterial.SetTexture("_texture", texture);
 	}
 }

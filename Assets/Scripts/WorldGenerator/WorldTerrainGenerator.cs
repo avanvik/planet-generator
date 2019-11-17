@@ -28,9 +28,9 @@ static class WorldTerrainGenerator
 			return face;
 		});
 
-		var combinedElevationMinMax = MinMax.Union(faces.Select(face=> face.ElevationRange));
-
-        return rootNode;
+		var combinedElevationMinMax = MinMax.Union(faces.Select(face => face.ElevationRange));
+		
+		return rootNode;
 	}
 
 	private static WorldFace GenerateWorldFace(Transform parent, Vector3 direction, int resolution, Material material, ShapeSettings shapeSettings)
@@ -41,7 +41,6 @@ static class WorldTerrainGenerator
 
 		var meshFilter = face.AddComponent<MeshFilter>();
 		var terrainFace = TerrainFaceGenerator.GenerateTerrainFace(resolution, direction, shapeSettings);
-
 		meshFilter.sharedMesh = terrainFace.Mesh;
 
 		return new WorldFace() { GameObject = face, ElevationRange = terrainFace.ElevationRange };

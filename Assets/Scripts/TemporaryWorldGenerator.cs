@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEditor;
 
 public class TemporaryWorldGenerator : MonoBehaviour
-{    
-	public Material material;
+{
+	[Range(1, 100)]
 	public int resolution;
 	
 	public ShapeSettings shapeSettings;
+	public ColorSettings colorSettings;
 
 	private void Awake()
 	{
@@ -28,7 +29,7 @@ public class TemporaryWorldGenerator : MonoBehaviour
 			}
 		
 			var terrainConfig = new WorldTerrainParameters() {
-				Material = material,
+				Material = colorSettings.worldMaterial,
 				Resolution = resolution,
 				ShapeSettings = shapeSettings
 			};
@@ -36,6 +37,8 @@ public class TemporaryWorldGenerator : MonoBehaviour
 			var world = WorldTerrainGenerator.GenerateWorldTerrain(terrainConfig);
 			world.transform.parent = transform;
 			world.transform.position = transform.position;
+
+			var colors = new ColorGenerator();
 		}
 	}
 }

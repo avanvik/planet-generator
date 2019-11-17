@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class ShapeSettings
 {
-    [Range(0, 100)]
-    public float planetRadius;
-    public NoiseLayer[] noiseLayers;
+	[Range(1, 100)]
+	public float planetRadius;
+	public NoiseLayer[] noiseLayers;
 	
 	[System.Serializable]
 	public class NoiseLayer {
