@@ -5,8 +5,11 @@ using UnityEditor;
 
 public class TemporaryWorldGenerator : MonoBehaviour
 {
-	[Range(1, 100)]
-	public int resolution;
+	[Range(1, 128)]
+	public int resolution = 32;
+
+	[Range(1, 8)]
+	public int colliderResolutionFraction = 1;
 	
 	public ShapeSettings shapeSettings;
 	public ColorSettings colorSettings;
@@ -31,6 +34,7 @@ public class TemporaryWorldGenerator : MonoBehaviour
 			var terrainConfig = new WorldTerrainParameters() {
 				Material = colorSettings.worldMaterial,
 				Resolution = resolution,
+				ColliderResolutionFraction = colliderResolutionFraction,
 				ShapeSettings = shapeSettings
 			};
 
