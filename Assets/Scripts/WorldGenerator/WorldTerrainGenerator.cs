@@ -39,9 +39,15 @@ static class WorldTerrainGenerator
 		var renderer = face.AddComponent<MeshRenderer>();
 		renderer.sharedMaterial = material;
 
+		// Face geometry
 		var meshFilter = face.AddComponent<MeshFilter>();
 		var terrainFace = TerrainFaceGenerator.GenerateTerrainFace(resolution, direction, shapeSettings);
 		meshFilter.sharedMesh = terrainFace.Mesh;
+
+		// Collider geometry
+		var collider = face.AddComponent<MeshCollider>();
+		var collisionFace = TerrainFaceGenerator.GenerateTerrainFace(resolution, direction, shapeSettings);
+		collider.sharedMesh = collisionFace.Mesh;
 
 		return new WorldFace() { GameObject = face, ElevationRange = terrainFace.ElevationRange };
 	}
