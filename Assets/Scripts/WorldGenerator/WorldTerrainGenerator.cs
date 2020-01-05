@@ -51,10 +51,15 @@ static class WorldTerrainGenerator
 		var terrainFace = TerrainFaceGenerator.GenerateTerrainFace(resolution, direction, shapeSettings);
 		meshFilter.sharedMesh = terrainFace.Mesh;
 
-		// Collider geometry
-		var collider = face.AddComponent<MeshCollider>();
-		var collisionFace = TerrainFaceGenerator.GenerateTerrainFace(resolution / colliderResolutionFraction, direction, shapeSettings);
-		collider.sharedMesh = collisionFace.Mesh;
+		// Only generate colliders around planet
+		if(direction != Vector3.forward && direction != Vector3.back)
+		{
+			// Collider geometry
+			var collider = face.AddComponent<MeshCollider>();
+			var collisionFace = TerrainFaceGenerator.GenerateTerrainFace(resolution / colliderResolutionFraction, direction, shapeSettings);
+			collider.sharedMesh = collisionFace.Mesh;
+		}
+		
 
 		return new WorldFace() { GameObject = face, ElevationRange = terrainFace.ElevationRange };
 	}
