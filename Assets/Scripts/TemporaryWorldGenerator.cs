@@ -30,9 +30,12 @@ public class TemporaryWorldGenerator : MonoBehaviour
 			if (oldChild != null) {
 				DestroyImmediate(oldChild.gameObject);
 			}
+
+			var colorGenerator = new ColorGenerator(); // Rewrite to static method
+			var sharedMaterial = new Material(colorGenerator.GenerateMaterial(colorSettings));
 		
 			var terrainConfig = new WorldTerrainParameters() {
-				Material = colorSettings.worldMaterial,
+				Material = sharedMaterial,
 				Resolution = resolution,
 				ColliderResolutionFraction = colliderResolutionFraction,
 				ShapeSettings = shapeSettings
@@ -41,8 +44,6 @@ public class TemporaryWorldGenerator : MonoBehaviour
 			var world = WorldTerrainGenerator.GenerateWorldTerrain(terrainConfig);
 			world.transform.parent = transform;
 			world.transform.position = transform.position;
-
-			var colors = new ColorGenerator();
 		}
 	}
 }
