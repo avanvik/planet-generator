@@ -33,7 +33,8 @@ static class WorldTerrainGenerator
 		});
 
 		var combinedElevationMinMax = MinMax.Union(faces.Select(face => face.ElevationRange));
-		
+		parameters.Material.SetVector("_elevationMinMax", new Vector4(combinedElevationMinMax.Min, combinedElevationMinMax.Max));
+
 		return rootNode;
 	}
 
@@ -59,8 +60,10 @@ static class WorldTerrainGenerator
 			var collisionFace = TerrainFaceGenerator.GenerateTerrainFace(resolution / colliderResolutionFraction, direction, shapeSettings);
 			collider.sharedMesh = collisionFace.Mesh;
 		}
-		
 
+		// var combinedElevationMinMax = MinMax.Union(faces.Select(face => face.ElevationRange));
+		renderer.sharedMaterial.SetVector("_elevationMinMax", new Vector4(0, 10));
+		
 		return new WorldFace() { GameObject = face, ElevationRange = terrainFace.ElevationRange };
 	}
 }

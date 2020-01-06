@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorGenerator {
+public class ColorGenerator 
+{
 
 	ColorSettings settings;
 	Texture2D texture;
@@ -17,10 +18,10 @@ public class ColorGenerator {
 		}
 	}
 
-	public void UpdateElevation(MinMax elevationMinMax)
-	{
-		settings.worldMaterial.SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min, elevationMinMax.Max));
-	}
+	// public void UpdateElevation(MinMax elevationMinMax)
+	// {
+	// 	settings.worldMaterial.SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min, elevationMinMax.Max));
+	// }
 
 	public void UpdateColors()
 	{
@@ -32,5 +33,15 @@ public class ColorGenerator {
 		texture.SetPixels(colors);
 		texture.Apply();
 		settings.worldMaterial.SetTexture("_texture", texture);
+	}
+
+	// Rewrite to static method
+	public Material GenerateMaterial(ColorSettings inputSettings)
+	{
+		var settings = inputSettings;
+		UpdateSettings(settings);
+		UpdateColors();
+
+		return settings.worldMaterial;
 	}
 }
